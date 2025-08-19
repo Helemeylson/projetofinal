@@ -13,5 +13,15 @@ def tecnologias(request):
 def tecnologia_python(request):
     return render(request, "marketplace/python.html")
 
+def mostra_generos(request):
+    dados ={ 
+        1:{"nome":"Visual Novel"},
+        2:{"nome":"Plataforma"},
+        3:{"nome":"acao"},
+
+      
+    }
+    return render(request,'marketplace/sou_membro.html', {"cards":dados})
+
 
 # Create your views here.
