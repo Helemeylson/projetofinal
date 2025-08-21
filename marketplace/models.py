@@ -9,6 +9,7 @@ from django.db import models
 #localhost:8080/admin
 #herança
 class Membro(models.Model):
+    nome = models.CharField(max_length=50, null=False, blank=False)
     email = models.CharField(max_length=50, null=False, blank=False)
     senha = models.CharField(max_length=50, null=False, blank=False)
 

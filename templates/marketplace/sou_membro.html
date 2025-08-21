@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="{% static 'styles/login.css' %}">
 </head>
 <body>
-  
-    <div class="login-container">
-        <h2>Sou Membro</h2>
+    {% if membros %}
+        <h6>Ultimos membros cadastrados</h6>
+        {% for membro in membros %}
+            <p>{{membro.nome}}</p>
+        {% endfor %}
+    {% else %}
+        <p>Maravilha você será o primeiro da plataforma! UAU!</p>
+    {% endif %}
+
+
+    <div class="login-container">    
+        <h2>Cadastrar</h2>
         <form action="#" method="POST">
             {% csrf_token %}
             <input type="email" name="email" placeholder="Digite seu e-mail" required>
             <input type="password" name="senha" placeholder="Digite sua senha" required>
-
-           
-
             <select>
-                {% for chave, valor in cards.items %}
-                    <option value="{{chave}}">{{valor.nome}}</option>
+                {% for genero in generos %}
+                    <option value="{{chave}}">{{genero.nome}}</option>
                 {% endfor %}
-                
-
             </select>
-          
             <button type="submit">Entrar</button>
         </form>
     </div>
